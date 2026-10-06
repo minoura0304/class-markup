@@ -1,0 +1,202 @@
+ @charset "utf-8";
+
+ /* 共通部分 */
+ body {
+     color: #6C6C6F;
+     font-size: 16px;
+     font-family: Helvetica, Arial, sans-serif;
+     line-height: 1.7;
+     letter-spacing: 0;
+ }
+
+ .inner {
+     width: 82.9%;
+     max-width: 1800ox;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ img {
+     width: 100%;
+     height: auto;
+     vertical-align: middle;
+ }
+
+ h2 {
+     font-size: 36px;
+     line-height: 1.3;
+     font-weight: bold;
+ }
+
+ a {
+     display: inline-block;
+     padding: 20px 55px;
+     color: #fff;
+     line-height: 1;
+     letter-spacing: 0.025em;
+     border-radius: 30px;
+ }
+
+ h3 {
+     color: #2F2F35;
+     font-size: 22px;
+     font-weight: bold;
+     line-height: 1.3;
+ }
+
+ .content {
+     margin-bottom: 20px;
+     color: #256BE6;
+     font-size: 14px;
+     letter-spacing: 0.05em;
+ }
+
+ /* ヘッダー */
+ header {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     padding: 40px 0;
+     background-color: #123D88;
+ }
+
+ h1 {
+     margin: 0 auto;
+     width: 140px;
+ }
+
+ /* メイン */
+ main {
+     margin-top: 120px;
+ }
+
+ .mainvisual {
+     padding: 160px 0;
+     background: url(./images/bg_mainvisual.png)no-repeat center center /cover;
+     color: #fff;
+     text-align: center;
+ }
+
+ .mainvisual h2 {
+     padding-bottom: 30px;
+ }
+
+ .mainvisual p {
+     padding-bottom: 60px;
+ }
+
+ .mainvisual a {
+     margin: 0 auto;
+     background-color: #F87624;
+ }
+
+ .what {
+     margin-bottom: 120px;
+     padding: 120px 0;
+     text-align: center;
+     background-color: #F7FAFF;
+ }
+
+ .what h2 {
+     padding-bottom: 30px;
+     color: #262934;
+     text-align: center;
+ }
+
+ .what p {
+     padding-bottom: 80px;
+     color: #2F2F35;
+ }
+
+ .what .service {
+     display: grid;
+     justify-content: center;
+     row-gap: 60px;
+ }
+
+ .what .service .kinds {
+     padding: 70px 110px;
+     background-color: #fff;
+ }
+
+ .what .service .kinds img {
+     width: 80px;
+     padding-bottom: 25px;
+ }
+
+ .make {
+     margin-bottom: 120px
+ }
+
+ .make h2 {
+     color: #262934;
+     margin-bottom: 30px;
+ }
+
+ .make .sentence p {
+     margin-bottom: 60px;
+ }
+
+ .make .sentence>p {
+     margin-bottom: 40px;
+ }
+
+ .make a {
+     margin-bottom: 100px;
+     background-color: #256BE6;
+ }
+
+ .simple {
+     padding: 120px 0;
+     background-color: #F7FAFF;
+ }
+
+ .simple h2 {
+     color: #262934;
+     padding-bottom: 30px;
+ }
+
+ .simple p {
+     margin-bottom: 60px;
+ }
+
+ .simple a {
+     margin-bottom: 100px;
+     background-color: #256BE6;
+ }
+
+ .simple .card {
+     display: grid;
+     grid-template-columns: repeat(2, auto);
+     justify-content: center;
+     align-items: center;
+     column-gap: 40px;
+ }
+
+ .simple .services {
+     width: 270px;
+ }
+
+ .simple .services img {
+     width: 70px;
+ }
+
+ @media (700px < width) {
+     .inner {
+         width: 66.7%;
+     }
+
+     .what .service {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         column-gap: 60px;
+     }
+
+     .make {
+         display: flex;
+         flex-direction: row-reverse;
+         column-gap: 90px;
+     }
+ }
