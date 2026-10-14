@@ -248,6 +248,10 @@ img {
     text-align: center;
 }
 
+.fees .intro__content {
+    padding-bottom: 40px;
+}
+
 .fees__list {
     padding: 60px;
     background-color: #F7FAFF;
