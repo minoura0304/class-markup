@@ -253,15 +253,65 @@ img {
 }
 
 .fees__list {
-    padding: 60px;
-    background-color: #F7FAFF;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 54px;
+    column-gap: 60px;
 }
 
 .fees__item {
-    padding: 40px;
-    background-color: #fff;
     text-align: center;
+}
+
+.question {
+    padding: 80px 0;
+    background-color: #123D88;
+    color: #fff;
+}
+
+.question__inner {
+    max-width: 1200px;
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.question__info {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.question__info .intro__title {
+    color: #fff;
+}
+
+.question__info .btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.general {
+    padding: 80px 0;
+}
+
+.general__inner {
+    max-width: 1200px;
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 94px;
+    align-items: center;
+}
+
+.general__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 46px;
+}
+
+.general .card {
+    padding: 40px;
+    border: #6C6C6F 1px solid;
 }
