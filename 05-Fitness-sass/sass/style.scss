@@ -153,6 +153,11 @@ img {
     border-radius: 10px;
     transition: .2s;
 
+    &--notice {
+        background-color: $color-label;
+        margin: 60px auto 100px;
+    }
+
     &:hover {
         background-color: $color-main;
     }
@@ -190,4 +195,37 @@ img {
         column-gap: percentage(math.div(30, 1200));
         text-align: center;
     }
+}
+
+// about.index
+.clasess {
+    &__inner {
+        @include inner();
+    }
+
+    &__info {
+        margin-bottom: 80px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 0;
+    }
+}
+
+.testimonials {
+    @include bg-color();
+    padding: 100px 0;
+
+    &__inner {
+        @include inner();
+    }
+
+
+    &__list {
+        margin-top: 80px;
+        text-align: center;
+    }
+
 }

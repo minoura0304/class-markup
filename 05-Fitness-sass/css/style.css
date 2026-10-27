@@ -113,6 +113,10 @@ img {
   border-radius: 10px;
   transition: 0.2s;
 }
+.btn--notice {
+  background-color: #FF1D6A;
+  margin: 60px auto 100px;
+}
 .btn:hover {
   background-color: #292F39;
 }
@@ -156,5 +160,42 @@ img {
   grid-template-columns: repeat(3, 1fr);
   -moz-column-gap: 2.5%;
        column-gap: 2.5%;
+  text-align: center;
+}
+
+.clasess__inner {
+  max-width: 1488px;
+  width: 80.6451612903%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.clasess__info {
+  margin-bottom: 80px;
+}
+.clasess__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 0;
+       column-gap: 0;
+}
+
+.testimonials {
+  background-color: #292F39;
+  color: #fff;
+}
+.testimonials .intro__title {
+  color: #fff;
+}
+.testimonials {
+  padding: 100px 0;
+}
+.testimonials__inner {
+  max-width: 1488px;
+  width: 80.6451612903%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.testimonials__list {
+  margin-top: 80px;
   text-align: center;
 }/*# sourceMappingURL=style.css.map */
