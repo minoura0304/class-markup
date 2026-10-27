@@ -5,8 +5,9 @@ body {
   line-height: 1.6875;
   letter-spacing: 0.02em;
 }
-body img {
-  width: 100%;
+
+img {
+  max-width: 100%;
   height: auto;
   vertical-align: bottom;
 }
@@ -45,34 +46,75 @@ body img {
   text-align: center;
 }
 
-.card {
-  position: relative;
+.intro__title {
+  margin-bottom: 60px;
+  color: #292F39;
+  font-family: Times New Roman, Times, serif;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.3125;
 }
-.card::after {
-  content: "Cardio Fitness";
-  position: absolute;
-  padding: 30px 0;
-  color: #fff;
-  background-color: #292F39;
+.intro__title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  margin-top: 20px;
+  border-bottom: #5EB6E1 2px solid;
+}
+.intro__content {
+  display: grid;
+  gap: 40px;
+}
+.intro--center {
   text-align: center;
-  bottom: 0;
-  width: 100%;
+}
+.intro--center .intro__title::after {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.teacher__img {
-  padding-bottom: 30px;
+.panel__pic {
+  position: relative;
 }
-.teacher__name {
-  padding-bottom: 20px;
+.panel__label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 0;
   color: #fff;
-  font-size: 24px;
   text-align: center;
   line-height: 1.2916666667;
+  background-color: rgba(0, 0, 0, 0.6);
 }
-.teacher__work {
+
+.card__title {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.2916666667;
+}
+.card__text {
+  margin-top: 20px;
   color: #FF1D6A;
-  text-align: center;
   font-weight: bold;
+}
+
+.btn {
+  display: block;
+  width: 200px;
+  margin-top: 60px;
+  padding: 25px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  background-color: #5EB6E1;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.btn:hover {
+  background-color: #292F39;
 }
 
 .bestrong {
@@ -83,21 +125,36 @@ body img {
   width: 80.6451612903%;
   margin-left: auto;
   margin-right: auto;
+  display: grid;
+  grid-template-columns: 620fr 500fr;
+  -moz-column-gap: 6.6666666667%;
+       column-gap: 6.6666666667%;
+  align-items: center;
 }
-.bestrong__title {
-  position: relative;
+
+.team {
+  background-color: #292F39;
+  color: #fff;
+}
+.team .intro__title {
+  color: #fff;
+}
+.team {
+  padding: 100px 0;
+}
+.team__inner {
+  max-width: 1488px;
+  width: 80.6451612903%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.team__info {
   margin-bottom: 80px;
-  padding-bottom: 20px;
-  color: #292F39;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 1.3125;
 }
-.bestrong__title::after {
-  content: "";
-  color: #5EB6E1;
-  bottom: 20px;
-  width: 120px;
-  height: 2px;
+.team__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 2.5%;
+       column-gap: 2.5%;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

@@ -5,6 +5,7 @@ $color-main: #292F39;
 $color-accent: #5EB6E1;
 $color-label: #FF1D6A;
 $font-family-gothic: Helbetica, Arial, sans-serif;
+$font-family-mincho: Times New Roman, Times, serif;
 
 @mixin inner($mw: 1488px, $w: percentage(math.div(1200, 1488))) {
     max-width: $mw;
@@ -13,22 +14,12 @@ $font-family-gothic: Helbetica, Arial, sans-serif;
     margin-right: auto;
 }
 
-@mixin title-main {
-    position: relative;
-    margin-bottom: 80px;
-    padding-bottom: 20px;
-    color: $color-main;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 32px;
-    font-weight: bold;
-    line-height: math.div(42, 32);
+@mixin bg-color($c: $color-main) {
+    background-color: $c;
+    color: #fff;
 
-    &::after {
-        content: "";
-        color: $color-accent;
-        bottom: 20px;
-        width: 120px;
-        height: 2px;
+    .intro__title {
+        color: #fff;
     }
 }
 
@@ -38,13 +29,14 @@ body {
     font-size: 16px;
     line-height: math.div(27, 16);
     letter-spacing: #{math.div(20, 1000)}em;
-
-    img {
-        width: 100%;
-        height: auto;
-        vertical-align: bottom;
-    }
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
 
 .header {
     margin: 40px 0 100px;
@@ -78,40 +70,94 @@ body {
 }
 
 // モジュール
-.card {
-    position: relative;
+.intro {
+    &__title {
+        margin-bottom: 60px;
+        color: $color-main;
+        font-family: $font-family-mincho;
+        font-size: 32px;
+        font-weight: bold;
+        line-height: math.div(42, 32);
 
-    &::after {
-        content: "Cardio Fitness";
-        position: absolute;
-        padding: 30px 0;
-        color: #fff;
-        background-color: $color-main;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 120px;
+            margin-top: 20px;
+            border-bottom: $color-accent 2px solid;
+        }
+    }
+
+    &__content {
+        display: grid;
+        gap: 40px;
+    }
+
+    &--center {
         text-align: center;
-        bottom: 0;
-        width: 100%;
+
+        .intro__title {
+
+            &::after {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
     }
 }
 
-.teacher {
-    &__img {
-        padding-bottom: 30px;
+.panel {
+    &__pic {
+        position: relative;
     }
 
-    &__name {
-        padding-bottom: 20px;
+    &__label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 0;
         color: #fff;
-        font-size: 24px;
         text-align: center;
+        line-height: math.div(31, 24);
+        background-color: rgba(0, 0, 0, .6);
+    }
+}
+
+.card {
+    &__title {
+        margin-top: 30px;
+        font-size: 24px;
+        font-weight: normal;
         line-height: math.div(31, 24);
     }
 
-    &__work {
+    &__text {
+        margin-top: 20px;
         color: $color-label;
-        text-align: center;
         font-weight: bold;
     }
 }
+
+.btn {
+    display: block;
+    width: 200px;
+    margin-top: 60px;
+    padding: 25px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    background-color: $color-accent;
+    border-radius: 10px;
+    transition: .2s;
+
+    &:hover {
+        background-color: $color-main;
+    }
+}
+
 
 // index.html
 .bestrong {
@@ -119,9 +165,29 @@ body {
 
     &__inner {
         @include inner();
+        display: grid;
+        grid-template-columns: 620fr 500fr;
+        column-gap: percentage(math.div(80, 1200));
+        align-items: center;
+    }
+}
+
+.team {
+    @include bg-color();
+    padding: 100px 0;
+
+    &__inner {
+        @include inner();
     }
 
-    &__title {
-        @include title-main();
+    &__info {
+        margin-bottom: 80px;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: percentage(math.div(30, 1200));
+        text-align: center;
     }
 }
