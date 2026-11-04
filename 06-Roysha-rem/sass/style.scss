@@ -1,0 +1,112 @@
+@use "sass:math";
+
+$color-main: #256BE6;
+$color-text: #6C6C6F;
+$color-base: #262934;
+
+$font-size-base: 16;
+
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value, $font-size-self)}em;
+}
+
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+body {
+    color: $color-text;
+    font-size: rem(14);
+    /* 14 / 16 = 0.875倍 */
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: math.div(28, 16);
+    letter-spacing: ls(50);
+}
+
+.intro {
+    &__catch {
+        margin-bottom: em(20, 12);
+        font-size: rem(12);
+        /* 12 / 16 = 0.75倍 */
+        color: $color-main;
+    }
+
+    &__title {
+        margin-bottom: rem(30);
+        color: $color-base;
+        font-size: clamp(rem(24), 3vw, rem(36));
+        font-weight: bold;
+        line-height: math.div(48, 36);
+    }
+}
+
+.card {
+    &__title {
+        font-size: clamp(rem(16), 1.8vw, rem(22));
+    }
+}
+
+.btn {
+    display: block;
+    width: em(200, 14);
+    padding: em(20, 14);
+    border-radius: 9999px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: ls(75);
+    text-align: center;
+    background-color: $color-main;
+}
+
+.header {
+    background-color: $color-main;
+    width: 50vw;
+    height: 100vh;
+    height: 10dvh;
+}
+
+.mainvisual {
+    background-color: #ddd;
+    min-height: clamp(300px, 40vh, 600px);
+    // min-height: 100dvh; // 画面が極端に低い時に中身がはみ出ないよう min-height が安全
+    display: grid;
+    place-items: center; // これだけで子要素（__inner）が上下左右中央に配置される！
+    padding: 2rem; // 画面端にくっつかないための余白
+
+    &__inner {
+        text-align: center;
+    }
+}
+
+.gnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; // 100vw ではなく 100% にする
+    height: 100vh;
+    height: 100dvh; // 画面の高さいっぱいに固定
+    background-color: rgba(0, 0, 0, 0.9);
+
+    // 高さが足りるときは上下左右中央に配置
+    display: none;
+    place-items: center;
+
+    // 高さが足りないときはメニュー内部で縦スクロールさせる！
+    overflow-y: auto;
+    padding: 4rem 1.5rem; // スクロール時に上下の項目が画面端や閉じるボタンと重ならないための余白
+
+    &__list {
+        display: grid;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
