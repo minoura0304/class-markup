@@ -1,0 +1,267 @@
+@use "sass:math";
+@use "sass:map";
+
+// --- Variables ---
+
+// Colors
+$color-text: #000;
+$color-base: #ffffff;
+$color-main: #E40065;
+$color-bg: #F4F4F4;
+$color-footer: #2F2F2F;
+
+// Typography
+$font-size-base: 16;
+$font-family-gothic: "Helvetica Neue", Arial, "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+$font-family-mincho: "Times New Roman", Times, "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+
+// Breakpoints
+$breakpoints: (
+    "sm": 700px,
+    // 大型スマホ〜小型タブレット
+    "md": 700px,
+    // 一般的なタブレット
+    "lg": 1024px,
+    // ノートPC・デスクトップ
+    "xl": 1280px // 大型ディスプレイ
+);
+
+// --- Functions ---
+
+// pxをemに変換
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value, $font-size-self)}em;
+}
+
+
+// pxをremに変換
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+// XD/Figmaのトラッキング値をemに変換
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+// 親要素の幅に対する「%」を自動計算
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+// --- Mixins ---
+
+// メディアクエリ（モバイルファースト）
+@mixin mq($breakpoint: md) {
+    $width: map.get($breakpoints, $breakpoint);
+
+    @media (width >=$width) {
+        @content;
+    }
+}
+
+// インナーコンテナ幅の指定
+@mixin inner($mw: 1000px, $w: 83%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    color: $color-text;
+    font-family: $font-family-gothic;
+    font-size: rem(14);
+    line-height: math.div(34, 14);
+    letter-spacing: ls(50);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.header {
+    margin: rem(48) 0;
+
+    &__inner {
+        @include inner();
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: rem(32);
+    }
+
+    &__item {
+        &:hover {
+            color: $color-main;
+        }
+    }
+
+    &__logo {
+        font-size: rem(24);
+        font-weight: bold;
+        line-height: math.div(29, 24);
+        letter-spacing: lg(100);
+        white-space: nowrap;
+    }
+}
+
+.footer {
+    padding: rem(80) 0;
+    background-color: $color-footer;
+    color: $color-base;
+    font-size: rem(12);
+    font-weight: bold;
+    text-align: center;
+    line-height: math.div(20, 12);
+}
+
+// モジュール
+.card {
+    &__title {
+        margin: rem(24) 0;
+        font-size: rem(18);
+        font-weight: bold;
+        line-height: math.div(31, 18);
+    }
+}
+
+// index.html
+.hero {
+    margin-bottom: rem(80);
+
+    &__inner {
+        @include inner();
+    }
+}
+
+.about {
+    margin-bottom: rem(120);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        margin-bottom: rem(64);
+        font-size: rem(32);
+        font-weight: bold;
+        text-align: center;
+        line-height: math.div(54, 32);
+
+        &::after {
+            content: "";
+            display: block;
+            width: rem(100);
+            margin: rem(24) auto 0;
+            border-top: rem(2) $color-main solid;
+        }
+    }
+
+    &__text {
+        display: grid;
+        row-gap: rem(48);
+        text-align: center;
+        word-break: keep-all;
+    }
+}
+
+.works {
+    padding: rem(124) 0;
+    background-color: $color-bg;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        margin-bottom: rem(64);
+        font-size: rem(32);
+        font-weight: bold;
+        text-align: center;
+        line-height: math.div(54, 32);
+
+        &::after {
+            content: "";
+            display: block;
+            width: rem(100);
+            margin: rem(24) auto 0;
+            border-top: rem(2) $color-main solid;
+        }
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: rem(64) rem(50);
+    }
+}
+
+.schedule {
+    margin: rem(124) 0;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        margin-bottom: rem(64);
+        font-size: rem(32);
+        font-weight: bold;
+        text-align: center;
+        line-height: math.div(54, 32);
+
+        &::after {
+            content: "";
+            display: block;
+            width: rem(100);
+            margin: rem(24) auto 0;
+            border-top: rem(2) $color-main solid;
+        }
+    }
+
+    &__scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        background-color: $color-base;
+    }
+
+    &__table {
+        margin-bottom: rem(24);
+        width: 100%;
+        min-width: 580px;
+        border-collapse: collapse;
+
+        th,
+        td {
+            padding: rem(15) 0;
+            border: 1px solid #707070;
+            white-space: nowrap;
+            font-size: rem(14);
+            text-align: center;
+        }
+
+        thead th {
+            background-color: #EDEFF2;
+            font-weight: bold;
+        }
+
+        tbody th {
+            background-color: #EDEFF2;
+            font-weight: bold;
+        }
+    }
+
+    &__text {
+        @include mq(md) {
+            display: none;
+        }
+    }
+}

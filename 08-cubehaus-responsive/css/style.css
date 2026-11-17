@@ -1,0 +1,185 @@
+body {
+  color: #000;
+  font-family: "Helvetica Neue", Arial, "Yu Gothic", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 0.875rem;
+  line-height: 2.4285714286;
+  letter-spacing: 0.05em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.header {
+  margin: 3rem 0;
+}
+.header__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.header__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+.header__item:hover {
+  color: #E40065;
+}
+.header__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2083333333;
+  letter-spacing: lg(100);
+  white-space: nowrap;
+}
+
+.footer {
+  padding: 5rem 0;
+  background-color: #2F2F2F;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.6666666667;
+}
+
+.card__title {
+  margin: 1.5rem 0;
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1.7222222222;
+}
+
+.hero {
+  margin-bottom: 5rem;
+}
+.hero__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about {
+  margin-bottom: 7.5rem;
+}
+.about__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about__title {
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.6875;
+}
+.about__title::after {
+  content: "";
+  display: block;
+  width: 6.25rem;
+  margin: 1.5rem auto 0;
+  border-top: 0.125rem #E40065 solid;
+}
+.about__text {
+  display: grid;
+  row-gap: 3rem;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.works {
+  padding: 7.75rem 0;
+  background-color: #F4F4F4;
+}
+.works__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.works__title {
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.6875;
+}
+.works__title::after {
+  content: "";
+  display: block;
+  width: 6.25rem;
+  margin: 1.5rem auto 0;
+  border-top: 0.125rem #E40065 solid;
+}
+.works__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem 3.125rem;
+}
+
+.schedule {
+  margin: 7.75rem 0;
+}
+.schedule__inner {
+  max-width: 1000px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.schedule__title {
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.6875;
+}
+.schedule__title::after {
+  content: "";
+  display: block;
+  width: 6.25rem;
+  margin: 1.5rem auto 0;
+  border-top: 0.125rem #E40065 solid;
+}
+.schedule__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+}
+.schedule__table {
+  margin-bottom: 1.5rem;
+  width: 100%;
+  min-width: 580px;
+  border-collapse: collapse;
+}
+.schedule__table th,
+.schedule__table td {
+  padding: 0.9375rem 0;
+  border: 1px solid #707070;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  text-align: center;
+}
+.schedule__table thead th {
+  background-color: #EDEFF2;
+  font-weight: bold;
+}
+.schedule__table tbody th {
+  background-color: #EDEFF2;
+  font-weight: bold;
+}
+@media (width >= 700px) {
+  .schedule__text {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
