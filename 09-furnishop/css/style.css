@@ -1,0 +1,238 @@
+body {
+  color: #244D4D;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6875;
+  letter-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  padding: 2.5rem 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.header__inner {
+  max-width: 1440px;
+  width: 69.4%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  font-size: 1.625rem;
+  font-weight: bold;
+  line-height: 0.0625rem;
+}
+
+.footer {
+  padding: 5rem 0;
+  background-color: #244D4D;
+}
+.footer__logo {
+  padding-bottom: 1.5625rem;
+  color: #ffffff;
+  font-size: 1.625rem;
+  text-align: center;
+  font-weight: bold;
+  line-height: 0.0625rem;
+}
+.footer__copyright {
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 225%;
+}
+
+.icon {
+  position: fixed;
+  top: 28rem;
+  right: 3.5rem;
+}
+.icon__list {
+  display: grid;
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 1.875rem;
+       column-gap: 1.875rem;
+}
+.nav__item:hover {
+  border-bottom: #244D4D 1px solid;
+}
+
+.post {
+  container-type: inline-size;
+}
+.post__inner {
+  display: grid;
+  gap: 1.25rem;
+}
+@container (width >=400px) {
+  .post__inner {
+    grid-template-columns: 200fr 250fr;
+  }
+}
+.post__pic img {
+  width: 100%;
+}
+.post__title {
+  margin-bottom: 1.5625rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2083333333;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 1.125rem 2.75rem;
+  background-color: #F4F4F4;
+  border-radius: 0.625rem;
+}
+.btn:hover {
+  color: #F4F4F4;
+  background-color: #244D4D;
+}
+
+.card {
+  position: relative;
+  padding: 2.8125rem;
+  background-color: #F4F4F4;
+}
+.card__badge {
+  position: absolute;
+  width: 2rem;
+  height: auto;
+  top: -0.9375rem;
+  right: 0.9375rem;
+}
+.card__text {
+  padding-bottom: 1.875rem;
+  text-align: center;
+}
+.card__img {
+  display: block;
+  margin: 0 auto;
+}
+
+.hero {
+  margin-bottom: 6rem;
+  padding: 15.625rem 0 8.75rem;
+  background: url(../images/bg_hero.png) no-repeat center/cover;
+}
+.hero__inner {
+  max-width: 1440px;
+  width: 69.4%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero__lead {
+  width: 30rem;
+  padding: 4.0625rem 3.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.hero__title {
+  padding-bottom: 0.9375rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2083333333;
+}
+
+.about {
+  margin-bottom: 6rem;
+}
+.about__inner {
+  max-width: 1440px;
+  width: 69.4%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.about__title {
+  padding-bottom: 0.9375rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2083333333;
+}
+.about__text {
+  margin-bottom: 3.125rem;
+  text-align: center;
+}
+.about__lead {
+  margin-bottom: 3.125rem;
+  text-align: center;
+}
+.about__list {
+  margin-bottom: 3.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  gap: 3.125rem 6%;
+}
+.about__btn {
+  text-align: center;
+}
+
+.products {
+  margin-bottom: 6rem;
+}
+.products__inner {
+  max-width: 1440px;
+  width: 69.4%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.products__title {
+  padding-bottom: 0.9375rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2083333333;
+}
+.products__list {
+  margin-bottom: 3.125rem;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 1.875rem;
+       column-gap: 1.875rem;
+}
+.products__item:hover {
+  border-bottom: #244D4D 1px solid;
+}
+.products__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3.125rem 1.875rem;
+}
+
+.information {
+  padding-bottom: 6rem;
+}
+.information__inner {
+  max-width: 1440px;
+  width: 69.4%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.information__title {
+  padding-bottom: 1.5625rem;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2083333333;
+}/*# sourceMappingURL=style.css.map */

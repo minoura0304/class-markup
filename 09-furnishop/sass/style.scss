@@ -1,0 +1,329 @@
+@use "sass:math";
+@use "sass:map";
+
+// --- Variables ---
+
+// Colors
+$color-text: #244D4D;
+$color-base: #ffffff;
+$color-bg: #F4F4F4;
+
+// Typography
+$font-size-base: 16;
+$font-family-gothic: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+$font-family-mincho: "Times New Roman", Times, "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+$font-family-text: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+// Breakpoints
+$breakpoints: (
+    "sm": 640px,
+    // 大型スマホ〜小型タブレット
+    "md": 740px,
+    // 一般的なタブレット
+    "lg": 1024px,
+    // ノートPC・デスクトップ
+    "xl": 1440px // 大型ディスプレイ
+);
+
+// --- Functions ---
+
+// pxをemに変換
+@function em($px-value, $font-size-self: 16) {
+    @return #{math.div($px-value, $font-size-self)}em;
+}
+
+
+// pxをremに変換
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+// XD/Figmaのトラッキング値をemに変換
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+// 親要素の幅に対する「%」を自動計算
+@function pct($target-px, $parent-px) {
+    @return math.percentage(math.div($target-px, $parent-px));
+}
+
+// --- Mixins ---
+
+// メディアクエリ（モバイルファースト）
+@mixin mq($breakpoint: md) {
+    $width: map.get($breakpoints, $breakpoint);
+
+    @media (width >=$width) {
+        @content;
+    }
+}
+
+// インナーコンテナ幅の指定
+@mixin inner($mw: 1440px, $w: 69.4%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin title-main() {
+    padding-bottom: rem(15);
+    text-align: center;
+    font-size: rem(24);
+    font-weight: bold;
+    line-height: math.div(29, 24);
+}
+
+body {
+    color: $color-text;
+    font-family: $font-family-text;
+    font-size: rem(16);
+    line-height: math.div(27, 16);
+    letter-spacing: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    padding: rem(40) 0;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    &__inner {
+        @include inner();
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        font-size: rem(26);
+        font-weight: bold;
+        line-height: rem(1);
+    }
+}
+
+.footer {
+    padding: rem(80) 0;
+    background-color: $color-text;
+
+    &__logo {
+        padding-bottom: rem(25);
+        color: $color-base;
+        font-size: rem(26);
+        text-align: center;
+        font-weight: bold;
+        line-height: rem(1);
+    }
+
+    &__copyright {
+        color: $color-base;
+        font-size: rem(12);
+        text-align: center;
+        line-height: percentage(math.div(27, 12));
+    }
+}
+
+.icon {
+    position: fixed;
+    top: rem(448);
+    right: rem(56);
+
+    &__list {
+        display: grid;
+        justify-items: center;
+        row-gap: rem(32);
+    }
+}
+
+
+// モジュール
+.nav {
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        column-gap: rem(30);
+
+    }
+
+    &__item {
+        &:hover {
+            border-bottom: $color-text 1px solid;
+        }
+    }
+}
+
+.post {
+    container-type: inline-size;
+
+    &__inner {
+        display: grid;
+        gap: rem(20);
+
+        @container (width >=400px) {
+            grid-template-columns: 200fr 250fr;
+        }
+    }
+
+    &__pic {
+        img {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        margin-bottom: rem(25);
+        font-size: rem(24);
+        font-weight: bold;
+        line-height: math.div(29, 24);
+    }
+}
+
+.btn {
+    display: inline-block;
+    margin: 0 auto;
+    padding: rem(18) rem(44);
+    background-color: $color-bg;
+    border-radius: rem(10);
+
+    &:hover {
+        color: $color-bg;
+        background-color: $color-text;
+    }
+}
+
+.card {
+    position: relative;
+    padding: rem(45);
+    background-color: $color-bg;
+
+    &__badge {
+        position: absolute;
+        width: rem(32);
+        height: auto;
+        top: rem(-15);
+        right: rem(15);
+    }
+
+    &__title {}
+
+    &__text {
+        padding-bottom: rem(30);
+        text-align: center;
+    }
+
+    &__img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+// index.html
+.hero {
+    margin-bottom: rem(96);
+    padding: rem(250) 0 rem(140);
+    background: url(../images/bg_hero.png) no-repeat center /cover;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__lead {
+        width: rem(480);
+        padding: rem(65) rem(60);
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    &__title {
+        @include title-main();
+    }
+}
+
+.about {
+    margin-bottom: rem(96);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        @include title-main();
+    }
+
+    &__text {
+        margin-bottom: rem(50);
+        text-align: center;
+    }
+
+    &__lead {
+        margin-bottom: rem(50);
+        text-align: center;
+    }
+
+    &__list {
+        margin-bottom: rem(60);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(300), 1fr));
+        gap: rem(50) pct(60, 1000);
+    }
+
+    &__btn {
+        text-align: center;
+    }
+
+}
+
+.products {
+    margin-bottom: rem(96);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        @include title-main();
+    }
+
+    &__list {
+        margin-bottom: rem(50);
+        display: flex;
+        justify-content: center;
+        column-gap: rem(30);
+    }
+
+    &__item {
+        &:hover {
+            border-bottom: $color-text 1px solid;
+        }
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: rem(50) rem(30);
+    }
+}
+
+.information {
+    padding-bottom: rem(96);
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        padding-bottom: rem(25);
+        font-size: rem(48);
+        font-weight: bold;
+        text-align: center;
+        line-height: math.div(58, 48);
+    }
+}
